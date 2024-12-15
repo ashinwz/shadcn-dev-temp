@@ -13,6 +13,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
 import { ChevronRight } from "lucide-react"
 import { LogoutButton } from "@/components/logout-button"
+import { ModeToggle } from "@/components/mode-toggle"
 
 export function AppHeader() {
   const pathname = usePathname()
@@ -58,7 +59,10 @@ export function AppHeader() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <LogoutButton />
+          <div className="flex items-center gap-2">
+            <ModeToggle />
+            <LogoutButton />
+          </div>
         </div>
       </header>
       <div className="h-6" />

@@ -21,12 +21,26 @@ import { ForgotPasswordForm } from "@/components/auth/forgot-password-form"
 import { ResetPasswordForm } from "@/components/auth/reset-password-form"
 import { toast } from "sonner"
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
+interface UserAuthFormProps {
+  className?: string
   defaultEmail?: string
   defaultPassword?: string
+  isRegistering: boolean
+  isForgotPassword: boolean
+  isResetPassword: boolean
+  onForgotPassword: () => void
 }
 
-function UserAuthForm({ className, defaultEmail, defaultPassword, ...props }: UserAuthFormProps) {
+function UserAuthForm({ 
+  className, 
+  defaultEmail, 
+  defaultPassword,
+  isRegistering,
+  isForgotPassword,
+  isResetPassword,
+  onForgotPassword,
+  ...props 
+}: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isGithubLoading, setIsGithubLoading] = useState<boolean>(false)
   const [emailOrUsername, setEmailOrUsername] = useState(defaultEmail || "")
@@ -99,7 +113,18 @@ function UserAuthForm({ className, defaultEmail, defaultPassword, ...props }: Us
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
+            <div className="flex justify-between items-center">
+              <Label htmlFor="password">Password</Label>
+              {!isRegistering && !isForgotPassword && !isResetPassword && (
+                <Button
+                  variant="link"
+                  className="h-auto p-0 text-xs text-muted-foreground underline-offset-4 hover:underline"
+                  onClick={onForgotPassword}
+                >
+                  Forgot password?
+                </Button>
+              )}
+            </div>
             <Input
               id="password"
               placeholder="********"
@@ -218,7 +243,14 @@ export default function LoginPage() {
               ) : isRegistering ? (
                 <RegisterForm onSuccess={handleRegistrationSuccess} />
               ) : (
-                <UserAuthForm defaultEmail={registrationValues?.email} defaultPassword={registrationValues?.password} />
+                <UserAuthForm 
+                  defaultEmail={registrationValues?.email} 
+                  defaultPassword={registrationValues?.password}
+                  isRegistering={isRegistering}
+                  isForgotPassword={isForgotPassword}
+                  isResetPassword={isResetPassword}
+                  onForgotPassword={() => setIsForgotPassword(true)}
+                />
               )}
             </CardContent>
             <CardFooter className="flex flex-wrap items-center justify-between gap-2">
@@ -252,13 +284,9 @@ export default function LoginPage() {
                 </Button>
               </div>
               {!isRegistering && !isForgotPassword && !isResetPassword && (
-                <Button
-                  variant="link"
-                  className="h-auto p-0 text-sm text-primary underline-offset-4 hover:underline"
-                  onClick={() => setIsForgotPassword(true)}
-                >
-                  Forgot password?
-                </Button>
+                <div className="flex items-center">
+                  <div className="flex-1" />
+                </div>
               )}
             </CardFooter>
           </Card>
