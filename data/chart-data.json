@@ -1,0 +1,24 @@
+{
+  "monthlyData": [
+    { "date": "2024-01-01", "revenue": 2400, "users": 1400 },
+    { "date": "2024-02-01", "revenue": 1398, "users": 1210 },
+    { "date": "2024-03-01", "revenue": 9800, "users": 2290 },
+    { "date": "2024-04-01", "revenue": 3908, "users": 2000 },
+    { "date": "2024-05-01", "revenue": 4800, "users": 2181 },
+    { "date": "2024-06-01", "revenue": 3800, "users": 2500 },
+    { "date": "2024-07-01", "revenue": 4300, "users": 2100 },
+    { "date": "2024-08-01", "revenue": 5300, "users": 2400 },
+    { "date": "2024-09-01", "revenue": 4300, "users": 2200 },
+    { "date": "2024-10-01", "revenue": 4300, "users": 2300 },
+    { "date": "2024-11-01", "revenue": 5300, "users": 2800 },
+    { "date": "2024-12-01", "revenue": 6300, "users": 3200 }
+  ],
+  "categoryData": [
+    { "category": "Electronics", "sales": 4000, "profit": 2400 },
+    { "category": "Fashion", "sales": 3000, "profit": 1398 },
+    { "category": "Home", "sales": 2000, "profit": 9800 },
+    { "category": "Sports", "sales": 2780, "profit": 3908 },
+    { "category": "Books", "sales": 1890, "profit": 4800 },
+    { "category": "Beauty", "sales": 2390, "profit": 3800 }
+  ]
+}
