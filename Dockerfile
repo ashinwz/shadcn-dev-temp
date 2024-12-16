@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM artifact.roche.com.cn/common-dockerhub-docker-r/node:18-alpine
 
 WORKDIR /app
 

@@ -10,6 +10,9 @@ do
 done
 echo "PostgreSQL is ready!"
 
+# Set NODE_TLS_REJECT_UNAUTHORIZED for Prisma
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
 echo "Generating Prisma Client..."
 npx prisma generate
 
