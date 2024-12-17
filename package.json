@@ -27,6 +27,8 @@
     "@radix-ui/react-tooltip": "^1.1.4",
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@react-pdf-viewer/highlight": "^3.12.0",
+    "@react-pdf-viewer/scroll-mode": "^3.12.0",
     "@tanstack/react-table": "^8.20.5",
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^2.4.3",
